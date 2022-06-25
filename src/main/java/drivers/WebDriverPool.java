@@ -3,6 +3,7 @@ package drivers;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.time.Duration;
 import java.util.Map;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -31,6 +32,7 @@ public class WebDriverPool {
       throw new RuntimeException(e);
     }
     driver.manage().window().maximize();
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
   }
 
   public static void destroy() {
